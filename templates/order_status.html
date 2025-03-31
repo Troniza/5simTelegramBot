@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/gandom-font@v0.5.1/dist/font-face.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/Troniza/MyFonts/fonts/Modam/font-face.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+        /* تعریف فونت گفته */
+        @font-face {
+            font-family: 'Gofteh';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/GoftehFaNumWeb-Heavy.woff2') format('woff2'),
+                 url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/GoftehFaNumWeb-Heavy.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* تعریف وزن‌های مختلف فونت مدام */
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-ExtraLight.ttf') format('truetype');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Light.ttf') format('truetype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-SemiBold.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-ExtraBold.ttf') format('truetype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Black.ttf') format('truetype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* تعریف متغیرهای رنگ برای تم */
+        :root {
+            --bg-color: #fff;
+            --container-bg: #fff;
+            --text-color: #333;
+            --text-secondary: #666;
+            --item-bg: #f8f9fa;
+            --border-color: #eee;
+            --btn-default-bg: #f0f0f0;
+            --btn-cancel-bg: #fee2e2;
+            --btn-cancel-color: #dc2626;
+            --btn-rebuy-bg: #fef3c7;
+            --btn-rebuy-color: #92400e;
+            --status-bg: #fff3cd;
+            --status-color: #856404;
+            --copy-btn-bg: #e8f4ff;
+            --success-bg: #d1fae5;
+            --success-color: #065f46;
+            --error-bg: #fee2e2;
+            --error-color: #dc2626;
+            --expired-bg: #f3f4f6;
+            --expired-color: #6b7280;
+            --btn-return-bg: #e6f2ff;
+            --btn-return-color: #0066cc;
+        }
+
+        /* تنظیمات دارک مود */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1a1a;
+                --container-bg: #1a1a1a;
+                --text-color: #e0e0e0;
+                --text-secondary: #a0a0a0;
+                --item-bg: #2d2d2d;
+                --border-color: #404040;
+                --btn-default-bg: #404040;
+                --btn-cancel-bg: #481a1a;
+                --btn-cancel-color: #ff4444;
+                --btn-rebuy-bg: #4d3000;
+                --btn-rebuy-color: #ffc107;
+                --status-bg: #3d3000;
+                --status-color: #ffc107;
+                --copy-btn-bg: #1a3d5c;
+                --success-bg: #064e3b;
+                --success-color: #a7f3d0;
+                --error-bg: #7f1d1d;
+                --error-color: #fecaca;
+                --expired-bg: #374151;
+                --expired-color: #d1d5db;
+                --btn-return-bg: #003366;
+                --btn-return-color: #b3d9ff;
+            }
+        }
+
+        /* اعمال متغیرهای رنگ به استایل‌ها */
+        body {
+            font-family: 'Modam', Tahoma;
+            font-weight: 400;
+            background-color: var(--bg-color);
+            padding: 16px;
+            direction: rtl;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Gofteh', sans-serif;
+            text-align: center;
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .status-box {
+            width: 100%;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .status-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .status-canceled {
+            background-color: var(--btn-cancel-bg);
+            color: var(--btn-cancel-color);
+        }
+
+        .status-success {
+            background-color: var(--success-bg);
+            color: var(--success-color);
+        }
+
+        .status-expired {
+            background-color: var(--expired-bg);
+            color: var(--expired-color);
+        }
+
+        .status-error {
+            background-color: var(--error-bg);
+            color: var(--error-color);
+        }
+
+        .code-value {
+            font-size: 24px;
+            font-weight: 600;
+            direction: ltr;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            margin: 10px auto;
+            display: inline-block;
+        }
+
+        .return-button {
+            background-color: var(--btn-return-bg);
+            color: var(--btn-return-color);
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-family: 'Modam', Tahoma;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            gap: 8px;
+        }
+
+        /* اضافه کردن transition برای تغییر نرم رنگ‌ها */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+        
+        <div class="status-box status-{{ status_type }}">
+            {% if status_type == "canceled" %}
+                <i class="fi fi-rr-ban status-icon"></i>
+            {% elif status_type == "success" %}
+                <i class="fi fi-rr-check status-icon"></i>
+            {% elif status_type == "expired" %}
+                <i class="fi fi-rr-time-past status-icon"></i>
+            {% elif status_type == "error" %}
+                <i class="fi fi-rr-exclamation status-icon"></i>
+            {% endif %}
+            
+            <div>{{ message|safe }}</div>
+        </div>
+        
+        {% if user_id %}
+            <a href="https://t.me/my_5sim_robot" class="return-button">
+                <i class="fi fi-rr-arrow-left"></i>
+                بازگشت به ربات
+            </a>
+        {% endif %}
+    </div>
+</body>
+</html> 

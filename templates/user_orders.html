@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+    <title>سفارش‌های من</title>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/gandom-font@v0.5.1/dist/font-face.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/Troniza/MyFonts/fonts/Modam/font-face.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+        /* تعریف فونت گفته */
+        @font-face {
+            font-family: 'Gofteh';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/GoftehFaNumWeb-Heavy.woff2') format('woff2'),
+                 url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/GoftehFaNumWeb-Heavy.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* تعریف وزن‌های مختلف فونت مدام */
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-ExtraLight.ttf') format('truetype');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Light.ttf') format('truetype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-SemiBold.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-ExtraBold.ttf') format('truetype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Black.ttf') format('truetype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* تعریف متغیرهای رنگ برای تم */
+        :root {
+            --bg-color: #fff;
+            --container-bg: #fff;
+            --text-color: #333;
+            --text-secondary: #666;
+            --item-bg: #f8f9fa;
+            --border-color: #eee;
+            --btn-default-bg: #f0f0f0;
+            --btn-cancel-bg: #fee2e2;
+            --btn-cancel-color: #dc2626;
+            --btn-rebuy-bg: #fef3c7;
+            --btn-rebuy-color: #92400e;
+            --status-bg: #fff3cd;
+            --status-color: #856404;
+            --copy-btn-bg: #e8f4ff;
+        }
+
+        /* تنظیمات دارک مود */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1a1a;
+                --container-bg: #1a1a1a;
+                --text-color: #e0e0e0;
+                --text-secondary: #a0a0a0;
+                --item-bg: #2d2d2d;
+                --border-color: #404040;
+                --btn-default-bg: #404040;
+                --btn-cancel-bg: #481a1a;
+                --btn-cancel-color: #ff4444;
+                --btn-rebuy-bg: #4d3000;
+                --btn-rebuy-color: #ffc107;
+                --status-bg: #3d3000;
+                --status-color: #ffc107;
+                --copy-btn-bg: #1a3d5c;
+            }
+        }
+
+        /* اعمال متغیرهای رنگ به استایل‌ها */
+        body {
+            font-family: 'Modam', Tahoma;
+            font-weight: 400;
+            background-color: var(--bg-color);
+            padding: 16px;
+            direction: rtl;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        h1 {
+            font-family: 'Gofteh', sans-serif;
+            text-align: center;
+            font-size: 30px;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .order-card {
+            background: var(--container-bg);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .order-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .order-id {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-received { 
+            background-color: var(--success-bg);
+            color: var(--success-color);
+        }
+        .status-pending { 
+            background-color: var(--status-bg);
+            color: var(--status-color);
+        }
+        .status-cancelled { 
+            background-color: var(--btn-cancel-bg);
+            color: var(--btn-cancel-color);
+        }
+
+        .order-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .info-item {
+            background: var(--item-bg);
+            padding: 12px;
+            border-radius: 8px;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            height: 48px;
+            box-sizing: border-box;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .info-item.phone-number {
+            justify-content: center;
+        }
+
+        .info-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            min-width: 80px;
+        }
+
+        .info-value-box {
+            background: var(--item-bg);
+            padding: 12px;
+            border-radius: 8px;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            height: 48px;
+            box-sizing: border-box;
+            min-width: 120px;
+            text-align: right;
+            padding-right: 15px;
+            justify-content: space-between;
+            flex: 1;
+        }
+
+        .info-icon {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .info-label i {
+            margin-left: 4px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .country-flag {
+            width: 20px;
+            height: 15px;
+            border-radius: 3px;
+            margin-left: 8px;
+            margin-right: 0;
+            vertical-align: middle;
+            object-fit: cover;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            float: left;
+        }
+
+        .details-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--btn-default-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-family: 'Modam';
+            transition: all 0.2s;
+            margin-top: 12px;
+            font-weight: 500;
+            box-sizing: border-box;
+        }
+
+        .details-button:hover {
+            background: var(--btn-rebuy-bg);
+            color: var(--btn-rebuy-color);
+            transform: translateY(-1px);
+        }
+
+        .no-orders {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            padding: 32px 16px;
+            background: var(--item-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .no-orders i {
+            font-size: 32px;
+            color: var(--text-secondary);
+        }
+
+        .no-orders p {
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* اضافه کردن transition برای تغییر نرم رنگ‌ها */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+    </style>
+    <script>
+        function toPersianNumber(str) {
+            const persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            return str.toString().replace(/[0-9]/g, function(w) {
+                return persianNumbers[+w];
+            });
+        }
+
+        function convertNumbersToPersian() {
+            // تبدیل شماره سفارش
+            document.querySelectorAll('.order-id').forEach(el => {
+                const text = el.textContent;
+                const orderNumber = text.match(/\d+/);
+                if (orderNumber) {
+                    el.textContent = text.replace(orderNumber[0], toPersianNumber(orderNumber[0]));
+                }
+            });
+
+            // تبدیل شماره تلفن
+            document.querySelectorAll('.info-value-box').forEach(el => {
+                if (el.textContent.match(/^\d+$/)) {
+                    el.textContent = toPersianNumber(el.textContent);
+                }
+            });
+
+            // تبدیل قیمت
+            document.querySelectorAll('.info-value-box').forEach(el => {
+                if (el.textContent.includes('تومان')) {
+                    const price = el.textContent.match(/\d+/);
+                    if (price) {
+                        el.textContent = el.textContent.replace(price[0], toPersianNumber(price[0]));
+                    }
+                }
+            });
+        }
+
+        // اجرای تابع بعد از لود صفحه
+        document.addEventListener('DOMContentLoaded', convertNumbersToPersian);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>سفارش‌های من</h1>
+        {% if orders %}
+            {% for order in orders %}
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-id">شماره سفارش: {{ order.id }}</div>
+                        <span class="status-badge status-{{ order.status.lower() }}">
+                            {% if order.status.lower() == 'received' %}
+                            دریافت شده
+                            {% elif order.status.lower() == 'pending' %}
+                            در انتظار
+                            {% elif order.status.lower() == 'cancelled' %}
+                            لغو شده
+                            {% else %}
+                            {{ order.status }}
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="order-info">
+                        <div class="info-row">
+                            <div class="info-item phone-number">
+                                <div class="info-value-box">{{ order.phone_number }}</div>
+                            </div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label"><i class="fi fi-rr-rocket"></i> سرویس:</div>
+                            <div class="info-value-box">
+                                {% if order.service == 'telegram' %}
+                                تلگرام
+                                {% elif order.service == 'whatsapp' %}
+                                واتس‌اپ
+                                {% elif order.service == 'instagram' %}
+                                اینستاگرام
+                                {% elif order.service == 'facebook' %}
+                                فیسبوک
+                                {% elif order.service == 'google' %}
+                                گوگل
+                                {% elif order.service == 'twitter' %}
+                                توییتر
+                                {% else %}
+                                {{ order.service }}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label"><i class="fi fi-rr-globe"></i> کشور:</div>
+                            <div class="info-value-box">
+                                {% if order.country == 'usa' or order.country == 'US' %}
+                                آمریکا <img src="https://countryflagsapi.netlify.app/flag/us.svg" class="country-flag">
+                                {% elif order.country == 'russia' %}
+                                روسیه <img src="https://countryflagsapi.netlify.app/flag/ru.svg" class="country-flag">
+                                {% elif order.country == 'germany' %}
+                                آلمان <img src="https://countryflagsapi.netlify.app/flag/de.svg" class="country-flag">
+                                {% elif order.country == 'china' %}
+                                چین <img src="https://countryflagsapi.netlify.app/flag/cn.svg" class="country-flag">
+                                {% elif order.country == 'england' %}
+                                انگلستان <img src="https://countryflagsapi.netlify.app/flag/gb.svg" class="country-flag">
+                                {% elif order.country == 'canada' %}
+                                کانادا <img src="https://countryflagsapi.netlify.app/flag/ca.svg" class="country-flag">
+                                {% elif order.country == 'france' %}
+                                فرانسه <img src="https://countryflagsapi.netlify.app/flag/fr.svg" class="country-flag">
+                                {% elif order.country == 'spain' %}
+                                اسپانیا <img src="https://countryflagsapi.netlify.app/flag/es.svg" class="country-flag">
+                                {% elif order.country == 'cyprus' %}
+                                قبرس <img src="https://countryflagsapi.netlify.app/flag/cy.svg" class="country-flag">
+                                {% elif order.country == 'paraguay' %}
+                                پاراگوئه <img src="https://countryflagsapi.netlify.app/flag/py.svg" class="country-flag">
+                                {% elif order.country == 'maldives' %}
+                                مالدیو <img src="https://countryflagsapi.netlify.app/flag/mv.svg" class="country-flag">
+                                {% elif order.country == 'suriname' %}
+                                سورینام <img src="https://countryflagsapi.netlify.app/flag/sr.svg" class="country-flag">
+                                {% elif order.country == 'slovenia' %}
+                                اسلوونی <img src="https://countryflagsapi.netlify.app/flag/si.svg" class="country-flag">
+                                {% elif order.country == 'georgia' %}
+                                گرجستان <img src="https://countryflagsapi.netlify.app/flag/ge.svg" class="country-flag">
+                                {% elif order.country == 'cameroon' %}
+                                کامرون <img src="https://countryflagsapi.netlify.app/flag/cm.svg" class="country-flag">
+                                {% elif order.country == 'laos' %}
+                                لائوس <img src="https://countryflagsapi.netlify.app/flag/la.svg" class="country-flag">
+                                {% elif order.country == 'benin' %}
+                                بنین <img src="https://countryflagsapi.netlify.app/flag/bj.svg" class="country-flag">
+                                {% elif order.country == 'dominican_republic' %}
+                                جمهوری دومینیکن <img src="https://countryflagsapi.netlify.app/flag/do.svg" class="country-flag">
+                                {% elif order.country == 'poland' %}
+                                لهستان <img src="https://countryflagsapi.netlify.app/flag/pl.svg" class="country-flag">
+                                {% elif order.country == 'philippines' %}
+                                فیلیپین <img src="https://countryflagsapi.netlify.app/flag/ph.svg" class="country-flag">
+                                {% elif order.country == 'netherlands' %}
+                                هلند <img src="https://countryflagsapi.netlify.app/flag/nl.svg" class="country-flag">
+                                {% elif order.country == 'estonia' %}
+                                استونی <img src="https://countryflagsapi.netlify.app/flag/ee.svg" class="country-flag">
+                                {% elif order.country == 'vietnam' %}
+                                ویتنام <img src="https://countryflagsapi.netlify.app/flag/vn.svg" class="country-flag">
+                                {% elif order.country == 'cambodia' %}
+                                کامبوج <img src="https://countryflagsapi.netlify.app/flag/kh.svg" class="country-flag">
+                                {% elif order.country == 'indonesia' %}
+                                اندونزی <img src="https://countryflagsapi.netlify.app/flag/id.svg" class="country-flag">
+                                {% elif order.country == 'ethiopia' %}
+                                اتیوپی <img src="https://countryflagsapi.netlify.app/flag/et.svg" class="country-flag">
+                                {% else %}
+                                {{ order.country }}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label"><i class="fi fi-rr-dollar"></i> قیمت:</div>
+                            <div class="info-value-box">{{ order.price | format_number }} تومان</div>
+                        </div>
+                    </div>
+                    <a href="/number_details/{{ order.id }}" class="details-button">
+                        <i class="fi fi-rr-eye"></i> مشاهده جزئیات
+                    </a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="no-orders">
+                <i class="fi fi-rr-box-open"></i>
+                <p>هنوز سفارشی ثبت نکرده‌اید</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html> 

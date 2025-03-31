@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+    <title>جزئیات شماره مجازی</title>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/gandom-font@v0.5.1/dist/font-face.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/Troniza/MyFonts/fonts/Modam/font-face.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+        /* تعریف فونت گفته */
+        @font-face {
+            font-family: 'Gofteh';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/GoftehFaNumWeb-Heavy.woff2') format('woff2'),
+                 url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/GoftehFaNumWeb-Heavy.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* تعریف وزن‌های مختلف فونت مدام */
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-ExtraLight.ttf') format('truetype');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Light.ttf') format('truetype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-SemiBold.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-ExtraBold.ttf') format('truetype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Modam';
+            src: url('https://cdn.jsdelivr.net/gh/Troniza/MyFonts/Modam-Black.ttf') format('truetype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* تعریف متغیرهای رنگ برای تم */
+        :root {
+            --bg-color: #fff;
+            --container-bg: #fff;
+            --text-color: #333;
+            --text-secondary: #666;
+            --item-bg: #f8f9fa;
+            --border-color: #eee;
+            --btn-default-bg: #f0f0f0;
+            --btn-cancel-bg: #fee2e2;
+            --btn-cancel-color: #dc2626;
+            --btn-rebuy-bg: #fef3c7;
+            --btn-rebuy-color: #92400e;
+            --status-bg: #fff3cd;
+            --status-color: #856404;
+            --copy-btn-bg: #e8f4ff;
+        }
+
+        /* تنظیمات دارک مود */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1a1a;
+                --container-bg: #1a1a1a;
+                --text-color: #e0e0e0;
+                --text-secondary: #a0a0a0;
+                --item-bg: #2d2d2d;
+                --border-color: #404040;
+                --btn-default-bg: #404040;
+                --btn-cancel-bg: #481a1a;
+                --btn-cancel-color: #ff4444;
+                --btn-rebuy-bg: #4d3000;
+                --btn-rebuy-color: #ffc107;
+                --status-bg: #3d3000;
+                --status-color: #ffc107;
+                --copy-btn-bg: #1a3d5c;
+            }
+        }
+
+        /* اعمال متغیرهای رنگ به استایل‌ها */
+        body {
+            font-family: 'Modam', Tahoma;
+            font-weight: 400;
+            background-color: var(--bg-color);
+            padding: 16px;
+            direction: rtl;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        h1 {
+            font-family: 'Gofteh', sans-serif;
+            text-align: center;
+            font-size: 30px;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .info-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .info-item, .info-value-box {
+            background: var(--item-bg);
+            padding: 12px;
+            border-radius: 8px;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            height: 48px;
+            box-sizing: border-box;
+        }
+
+        .info-item {
+            gap: 8px;
+            flex: 1;
+        }
+
+        .info-value-box {
+            min-width: 120px;
+            text-align: right;
+            padding-right: 15px;
+            justify-content: space-between;
+        }
+
+        .info-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .info-icon {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .info-label i {
+            margin-left: 4px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .country-flag {
+            width: 20px;
+            height: 15px;
+            border-radius: 3px;
+            margin-left: 8px;
+            margin-right: 0;
+            vertical-align: middle;
+            object-fit: cover;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            float: left;
+        }
+
+        .number-box {
+            background: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .phone-number {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-color);
+            direction: ltr;
+            margin: 8px 0;
+        }
+
+        .copy-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .copy-btn {
+            flex: 1;
+            background: var(--copy-btn-bg);
+            color: var(--text-color);
+            border: none;
+            padding: 8px;
+            border-radius: 6px;
+            font-family: 'Modam';
+            font-weight: 400;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .status-message {
+            background: var(--status-bg);
+            color: var(--status-color);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 400;
+            margin: 12px 0;
+        }
+
+        .countdown {
+            color: #dc3545;
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .action-btn {
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Modam';
+            font-size: 13px;
+            font-weight: 400;
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: var(--text-color);
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .action-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .btn-get-code {
+            background: var(--btn-default-bg);
+        }
+
+        .btn-cancel {
+            background: var(--btn-cancel-bg);
+            color: var(--btn-cancel-color);
+        }
+
+        .btn-rebuy {
+            grid-column: 1 / -1; /* این دکمه در یک ردیف جداگانه قرار می‌گیرد */
+            background: var(--btn-rebuy-bg);
+            color: var(--btn-rebuy-color);
+        }
+
+        .code-box {
+            display: none;
+            background: #d1fae5;
+            color: #065f46;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 12px 0;
+        }
+
+        .code-box .number {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 8px 0;
+        }
+        
+        .received-code {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 12px 0;
+            display: none;
+        }
+        
+        .code-value {
+            font-size: 24px;
+            font-weight: 600;
+            direction: ltr;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            margin: 8px 0;
+            display: inline-block;
+        }
+
+        /* اضافه کردن transition برای تغییر نرم رنگ‌ها */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* استایل مودال */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            direction: rtl;
+            backdrop-filter: blur(3px);
+        }
+        
+        .modal-content {
+            width: 85%;
+            max-width: 350px;
+            background-color: var(--container-bg);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: modal-fade-in 0.3s ease;
+        }
+        
+        @keyframes modal-fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .modal-title {
+            font-family: 'Gofteh', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-color);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        
+        .modal-close:hover {
+            background-color: var(--btn-default-bg);
+        }
+        
+        .modal-body {
+            padding: 20px 15px;
+            color: var(--text-color);
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        
+        .modal-footer {
+            padding: 10px 15px 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .modal-button {
+            background-color: var(--btn-default-bg);
+            color: var(--text-color);
+            border: none;
+            border-radius: 6px;
+            padding: 8px 15px;
+            font-family: 'Modam', Tahoma;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .modal-button:hover {
+            background-color: var(--btn-cancel-bg);
+            color: var(--btn-cancel-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>جزئیات شماره مجازی</h1>
+        
+        <div class="info-row">
+            <div class="info-item">
+                <div class="info-label"><i class="fi fi-rr-globe"></i> کشور:</div>
+            </div>
+            <div class="info-value-box">
+                {% if order.country == 'usa' or order.country == 'US' %}
+                آمریکا <img src="https://countryflagsapi.netlify.app/flag/us.svg" class="country-flag">
+                {% elif order.country == 'russia' %}
+                روسیه <img src="https://countryflagsapi.netlify.app/flag/ru.svg" class="country-flag">
+                {% elif order.country == 'germany' %}
+                آلمان <img src="https://countryflagsapi.netlify.app/flag/de.svg" class="country-flag">
+                {% elif order.country == 'china' %}
+                چین <img src="https://countryflagsapi.netlify.app/flag/cn.svg" class="country-flag">
+                {% elif order.country == 'england' %}
+                انگلستان <img src="https://countryflagsapi.netlify.app/flag/gb.svg" class="country-flag">
+                {% elif order.country == 'canada' %}
+                کانادا <img src="https://countryflagsapi.netlify.app/flag/ca.svg" class="country-flag">
+                {% elif order.country == 'france' %}
+                فرانسه <img src="https://countryflagsapi.netlify.app/flag/fr.svg" class="country-flag">
+                {% elif order.country == 'spain' %}
+                اسپانیا <img src="https://countryflagsapi.netlify.app/flag/es.svg" class="country-flag">
+                {% elif order.country == 'cyprus' %}
+                قبرس <img src="https://countryflagsapi.netlify.app/flag/cy.svg" class="country-flag">
+                {% elif order.country == 'paraguay' %}
+                پاراگوئه <img src="https://countryflagsapi.netlify.app/flag/py.svg" class="country-flag">
+                {% elif order.country == 'maldives' %}
+                مالدیو <img src="https://countryflagsapi.netlify.app/flag/mv.svg" class="country-flag">
+                {% elif order.country == 'suriname' %}
+                سورینام <img src="https://countryflagsapi.netlify.app/flag/sr.svg" class="country-flag">
+                {% elif order.country == 'slovenia' %}
+                اسلوونی <img src="https://countryflagsapi.netlify.app/flag/si.svg" class="country-flag">
+                {% elif order.country == 'georgia' %}
+                گرجستان <img src="https://countryflagsapi.netlify.app/flag/ge.svg" class="country-flag">
+                {% elif order.country == 'cameroon' %}
+                کامرون <img src="https://countryflagsapi.netlify.app/flag/cm.svg" class="country-flag">
+                {% elif order.country == 'laos' %}
+                لائوس <img src="https://countryflagsapi.netlify.app/flag/la.svg" class="country-flag">
+                {% elif order.country == 'benin' %}
+                بنین <img src="https://countryflagsapi.netlify.app/flag/bj.svg" class="country-flag">
+                {% elif order.country == 'dominican_republic' %}
+                جمهوری دومینیکن <img src="https://countryflagsapi.netlify.app/flag/do.svg" class="country-flag">
+                {% elif order.country == 'poland' %}
+                لهستان <img src="https://countryflagsapi.netlify.app/flag/pl.svg" class="country-flag">
+                {% elif order.country == 'philippines' %}
+                فیلیپین <img src="https://countryflagsapi.netlify.app/flag/ph.svg" class="country-flag">
+                {% elif order.country == 'netherlands' %}
+                هلند <img src="https://countryflagsapi.netlify.app/flag/nl.svg" class="country-flag">
+                {% elif order.country == 'estonia' %}
+                استونی <img src="https://countryflagsapi.netlify.app/flag/ee.svg" class="country-flag">
+                {% elif order.country == 'vietnam' %}
+                ویتنام <img src="https://countryflagsapi.netlify.app/flag/vn.svg" class="country-flag">
+                {% elif order.country == 'cambodia' %}
+                کامبوج <img src="https://countryflagsapi.netlify.app/flag/kh.svg" class="country-flag">
+                {% elif order.country == 'indonesia' %}
+                اندونزی <img src="https://countryflagsapi.netlify.app/flag/id.svg" class="country-flag">
+                {% elif order.country == 'ethiopia' %}
+                اتیوپی <img src="https://countryflagsapi.netlify.app/flag/et.svg" class="country-flag">
+                {% else %}
+                {{ order.country }}
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="info-row">
+            <div class="info-item">
+                <div class="info-label"><i class="fi fi-rr-rocket"></i> سرویس:</div>
+            </div>
+            <div class="info-value-box">
+                {% if order.service == 'telegram' %}
+                تلگرام
+                {% elif order.service == 'whatsapp' %}
+                واتس‌اپ
+                {% elif order.service == 'instagram' %}
+                اینستاگرام
+                {% elif order.service == 'facebook' %}
+                فیسبوک
+                {% elif order.service == 'google' %}
+                گوگل
+                {% elif order.service == 'twitter' %}
+                توییتر
+                {% else %}
+                {{ order.service }}
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="info-row">
+            <div class="info-item">
+                <div class="info-label"><i class="fi fi-rr-dollar"></i> قیمت:</div>
+            </div>
+            <div class="info-value-box">
+                {{ order.price | format_number }} تومان
+            </div>
+        </div>
+        
+        <div class="number-box">
+            <div class="phone-number">{{ order.phone_number }}</div>
+            <div class="copy-buttons">
+                <button onclick="copyNumberWithoutPrefix()" class="copy-btn">
+                    <i class="fi fi-rr-copy-alt"></i> کپی بدون پیش شماره
+                </button>
+                <button onclick="copyNumberWithPrefix()" class="copy-btn">
+                    <i class="fi fi-rr-copy"></i> کپی با پیش شماره
+                </button>
+        </div>
+        </div>
+        
+        <div class="status-message">
+            <i class="fi fi-rr-time-past"></i> در انتظار دریافت کد
+            <div class="countdown">زمان باقی‌مانده: <span id="timer" class="persian-number">20:00</span></div>
+        </div>
+        
+        <div class="received-code">
+            <i class="fi fi-rr-check"></i> کد دریافت شد
+            <div class="code-value" id="activation-code"></div>
+            <div>کد فوق را در برنامه وارد کنید</div>
+        </div>
+        
+        <div class="action-buttons">
+            <button onclick="checkForCodeManually()" class="action-btn btn-get-code">
+                <i class="fi fi-rr-refresh"></i> دریافت کد
+            </button>
+            <button onclick="cancelOrder()" class="action-btn btn-cancel">
+                <i class="fi fi-rr-cross-circle"></i> لغو سفارش
+            </button>
+            <button onclick="rebuyNumber()" class="action-btn btn-rebuy">
+                <i class="fi fi-rr-arrows-repeat"></i> خرید مجدد همین شماره
+            </button>
+        </div>
+        </div>
+        
+    <!-- مودال سفارشی -->
+    <div id="custom-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modal-title">عنوان پیام</div>
+                <button class="modal-close" onclick="closeModal()"><i class="fi fi-rr-cross-small"></i></button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">متن پیام در اینجا نمایش داده می‌شود.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-button" onclick="closeModal()">بستن</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // تابع تبدیل اعداد انگلیسی به فارسی
+        function toPersianNumber(input) {
+            const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            return String(input).replace(/[0-9]/g, function(w) {
+                return persianDigits[+w];
+            });
+        }
+        
+        // تابع برای فرمت کردن زمان به صورت MM:SS
+        function formatTime(totalSeconds) {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        // تابع برای بررسی دریافت کد
+        function checkForCode() {
+            const orderId = "{{ order.id }}";
+            const url = `/check_code/${orderId}`;
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code_received) {
+                        // کد دریافت شده است
+                        showReceivedCode(data.code);
+                        clearInterval(codeCheckInterval);
+                    }
+                })
+                .catch(error => {
+                    console.error('خطا در بررسی کد:', error);
+                });
+        }
+        
+        // تابع برای نمایش کد دریافت شده
+        function showReceivedCode(code) {
+            // پنهان کردن پیام انتظار
+            document.querySelector('.status-message').style.display = 'none';
+            
+            // نمایش کد دریافت شده
+            const codeElement = document.getElementById('activation-code');
+            codeElement.textContent = code;
+            document.querySelector('.received-code').style.display = 'block';
+            
+            // فعال کردن دکمه دریافت کد
+            const getCodeButton = document.querySelector('.btn-get-code');
+            getCodeButton.innerHTML = '<i class="fi fi-rr-check"></i> کد دریافت شد';
+            getCodeButton.disabled = true;
+            getCodeButton.style.opacity = '0.7';
+            getCodeButton.style.cursor = 'default';
+        }
+        
+        // تابع برای شروع تایمر
+        let timerInterval; // تعریف در سطح بالاتر
+        
+        function startTimer() {
+            // بررسی localStorage برای زمان شروع تایمر
+            let startTime = localStorage.getItem(`timer_start_${window.location.pathname}`);
+            const duration = 20 * 60; // 20 دقیقه به ثانیه
+            
+            // اگر تایمر قبلاً شروع نشده باشد، آن را شروع کنید
+            if (!startTime) {
+                startTime = Math.floor(Date.now() / 1000);
+                localStorage.setItem(`timer_start_${window.location.pathname}`, startTime);
+            }
+            
+            // تابع آپدیت تایمر
+            function updateTimer() {
+                const currentTime = Math.floor(Date.now() / 1000);
+                const elapsedTime = currentTime - startTime;
+                const remainingTime = Math.max(0, duration - elapsedTime);
+                
+                const timerElement = document.getElementById('timer');
+                
+                if (remainingTime <= 0) {
+                    // زمان تمام شده است
+                    timerElement.textContent = toPersianNumber('00:00');
+                    document.querySelector('.status-message').style.background = 'var(--btn-cancel-bg)';
+                    document.querySelector('.status-message').style.color = 'var(--btn-cancel-color)';
+                    document.querySelector('.status-message').innerHTML = '<i class="fi fi-rr-time-past"></i> زمان دریافت کد به پایان رسیده است';
+                    clearInterval(timerInterval);
+                    clearInterval(codeCheckInterval); // توقف بررسی کد
+                } else {
+                    // نمایش زمان باقی‌مانده
+                    timerElement.textContent = toPersianNumber(formatTime(remainingTime));
+                }
+            }
+            
+            // اولین اجرای تایمر
+            updateTimer();
+            
+            // آپدیت تایمر هر ثانیه
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+        
+        // تبدیل همه اعداد موجود در صفحه به فارسی
+        function convertPageNumbersToPersian() {
+            document.querySelectorAll('.persian-number').forEach(function(element) {
+                if (element.id !== 'timer') { // تایمر رو در تابع خودش تبدیل می‌کنیم
+                    element.textContent = toPersianNumber(element.textContent);
+                }
+            });
+            
+            // تبدیل شماره تلفن به فارسی
+            const phoneElement = document.querySelector('.phone-number');
+            if (phoneElement) {
+                phoneElement.textContent = toPersianNumber(phoneElement.textContent);
+            }
+            
+            // تبدیل قیمت به فارسی
+            const priceElements = document.querySelectorAll('.info-value-box');
+            priceElements.forEach(function(element) {
+                if (element.textContent.includes('تومان')) {
+                    element.innerHTML = toPersianNumber(element.innerHTML);
+                }
+            });
+        }
+        
+        // بررسی کد هر 5 ثانیه
+        let codeCheckInterval;
+        
+        // تابع برای بررسی دستی کد
+        function checkForCodeManually() {
+            const getCodeButton = document.querySelector('.btn-get-code');
+            const originalText = getCodeButton.innerHTML;
+            getCodeButton.innerHTML = '<i class="fi fi-rr-spinner"></i> در حال بررسی...';
+            getCodeButton.disabled = true;
+            
+            // بررسی کد
+            const orderId = "{{ order.id }}";
+            const url = `/check_code/${orderId}`;
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code_received) {
+                        // کد دریافت شده است
+                        showReceivedCode(data.code);
+                    } else {
+                        // کد هنوز دریافت نشده است
+                        getCodeButton.innerHTML = originalText;
+                        getCodeButton.disabled = false;
+                        showModal("اطلاعیه", "کد هنوز دریافت نشده است. لطفاً چند دقیقه دیگر دوباره تلاش کنید.");
+                    }
+                })
+                .catch(error => {
+                    console.error('خطا در بررسی کد:', error);
+                    getCodeButton.innerHTML = originalText;
+                    getCodeButton.disabled = false;
+                    showModal("خطا", "خطا در ارتباط با سرور. لطفاً دوباره تلاش کنید.");
+                });
+        }
+        
+        // اجرای توابع پس از بارگذاری صفحه
+        document.addEventListener('DOMContentLoaded', function() {
+            convertPageNumbersToPersian();
+            startTimer();
+            
+            // شروع بررسی کد هر 5 ثانیه
+            checkForCode(); // بررسی اولیه
+            codeCheckInterval = setInterval(checkForCode, 5000);
+        });
+        
+        function copyNumberWithPrefix() {
+            const number = "{{ order.phone_number }}";
+            navigator.clipboard.writeText(number).then(() => {
+                showModal("موفقیت", "شماره با پیش‌شماره با موفقیت کپی شد!");
+            });
+        }
+        
+        function copyNumberWithoutPrefix() {
+            const number = "{{ order.phone_number }}";
+            const numberWithoutPrefix = number.replace(/^\+/, '');
+            navigator.clipboard.writeText(numberWithoutPrefix).then(() => {
+                showModal("موفقیت", "شماره بدون پیش‌شماره با موفقیت کپی شد!");
+            });
+        }
+        
+        function cancelOrder() {
+            showModal("لغو سفارش", "آیا از لغو این سفارش اطمینان دارید؟");
+            
+            // اضافه کردن دکمه تایید به مودال
+            const modalFooter = document.querySelector('.modal-footer');
+            modalFooter.innerHTML = `
+                <button class="modal-button modal-cancel" onclick="closeModal()">انصراف</button>
+                <button class="modal-button modal-confirm" onclick="confirmCancelOrder()">تایید</button>
+            `;
+            
+            // اضافه کردن استایل برای دکمه تایید
+            const confirmButton = document.querySelector('.modal-confirm');
+            confirmButton.style.backgroundColor = 'var(--btn-cancel-bg)';
+            confirmButton.style.color = 'var(--btn-cancel-color)';
+            confirmButton.style.marginRight = '8px';
+        }
+        
+        function confirmCancelOrder() {
+            // بستن مودال تایید
+            closeModal();
+            
+            // ارسال درخواست لغو به سرور
+            const orderId = "{{ order.id }}";
+            const url = `/cancel_order/${orderId}`;
+            
+            // نمایش حالت در حال انتظار
+            const cancelButton = document.querySelector('.btn-cancel');
+            const originalButtonText = cancelButton.innerHTML;
+            cancelButton.innerHTML = '<i class="fi fi-rr-spinner"></i> در حال لغو...';
+            cancelButton.disabled = true;
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // لغو موفقیت‌آمیز
+                        document.querySelector('.status-message').style.background = 'var(--btn-cancel-bg)';
+                        document.querySelector('.status-message').style.color = 'var(--btn-cancel-color)';
+                        document.querySelector('.status-message').innerHTML = '<i class="fi fi-rr-cross-circle"></i> سفارش با موفقیت لغو شد';
+                        
+                        // غیرفعال کردن دکمه‌های اضافی
+                        document.querySelector('.btn-get-code').disabled = true;
+                        document.querySelector('.btn-get-code').style.opacity = '0.7';
+                        document.querySelector('.btn-rebuy').style.opacity = '1';
+                        
+                        // توقف بررسی کد و تایمر
+                        clearInterval(codeCheckInterval);
+                        
+                        // توقف تایمر
+                        if (timerInterval) {
+                            clearInterval(timerInterval);
+                        }
+                        
+                        // نمایش پیام موفقیت
+                        showModal("موفقیت", "سفارش با موفقیت لغو شد و مبلغ به کیف پول شما برگشت.");
+                    } else {
+                        // خطا در لغو
+                        showModal("خطا", "خطا در لغو سفارش: " + data.message);
+                        cancelButton.innerHTML = originalButtonText;
+                        cancelButton.disabled = false;
+                    }
+                })
+                .catch(error => {
+                    console.error('خطا در لغو سفارش:', error);
+                    showModal("خطا", "خطا در ارتباط با سرور. لطفا دوباره تلاش کنید.");
+                    cancelButton.innerHTML = originalButtonText;
+                    cancelButton.disabled = false;
+                });
+        }
+        
+        function rebuyNumber() {
+            showModal("خرید مجدد", "آیا مایل به خرید مجدد این شماره هستید؟");
+            
+            // اضافه کردن دکمه تایید به مودال
+            const modalFooter = document.querySelector('.modal-footer');
+            modalFooter.innerHTML = `
+                <button class="modal-button modal-cancel" onclick="closeModal()">انصراف</button>
+                <button class="modal-button modal-confirm" onclick="confirmRebuy()">تایید</button>
+            `;
+            
+            // اضافه کردن استایل برای دکمه تایید
+            const confirmButton = document.querySelector('.modal-confirm');
+            confirmButton.style.backgroundColor = 'var(--btn-rebuy-bg)';
+            confirmButton.style.color = 'var(--btn-rebuy-color)';
+            confirmButton.style.marginRight = '8px';
+        }
+        
+        function confirmRebuy() {
+            // بستن مودال تایید
+            closeModal();
+            
+            // اینجا می‌توان کد مربوط به خرید مجدد را قرار داد
+            showModal("اطلاعیه", "درخواست خرید مجدد شماره ارسال شد.");
+        }
+        
+        // تابع نمایش مودال
+        function showModal(title, message) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-message').textContent = message;
+            document.getElementById('custom-modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // جلوگیری از اسکرول صفحه پشت مودال
+        }
+        
+        // تابع بستن مودال
+        function closeModal() {
+            document.getElementById('custom-modal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // فعال کردن مجدد اسکرول صفحه
+        }
+        
+        // بستن مودال با کلیک خارج از محتوا
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('custom-modal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html> 

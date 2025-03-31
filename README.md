@@ -24,9 +24,11 @@ A Telegram bot for managing 5sim services with admin panel and user management f
 1. Clone the repository:
 ```bash
 git clone https://github.com/Troniza/5simTelegramBot.git
+```
+1.1
+```bash
 cd 5simTelegramBot
 ```
-
 2. Make the installation script executable:
 ```bash
 chmod +x install.sh
